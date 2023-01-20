@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./Nav.moduel.css";
+import styled from "./Nav.module.css";
 
 function Nav() {
   let navigate = useNavigate();
   return (
-    <div className={styles.ulbox}>
-      <ul className={styles.navbox}>
+    <div>
+      <ul className={styled.navbar}>
         <li onClick={() => navigate(`/`)}>Home</li>
         <GenreNav genre="Documentary" navigate={navigate} />
         <GenreNav genre="Sci-Fi" navigate={navigate} />

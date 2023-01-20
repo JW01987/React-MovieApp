@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
+import styled from "./Home.module.css";
 
 function Home() {
   let [loading, setLoading] = useState(true);
@@ -18,28 +19,32 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Best Movies</h1>
-      {loading ? (
-        <h4>Loading...</h4>
-      ) : (
-        movies.map((movie) => (
-          <Movie
-            key={movie.id}
-            id={movie.id}
-            rating={movie.rating}
-            coverImg={movie.medium_cover_image}
-            title={movie.title}
-            summary={
-              movie.summary.length < 230
-                ? movie.summary
-                : movie.summary.slice(0, movie.summary.lastIndexOf(" ", 230)) +
-                  " ..."
-            }
-            genres={movie.genres}
-          />
-        ))
-      )}
+    <div style={{ height: "100%" }}>
+      <h1 className={styled.maintitle}>Top Movies</h1>
+      <div className={styled.gridContainer}>
+        {loading ? (
+          <h1 style={{ color: "white" }}>Loading...</h1>
+        ) : (
+          movies.map((movie) => (
+            <Movie
+              key={movie.id}
+              id={movie.id}
+              rating={movie.rating}
+              coverImg={movie.medium_cover_image}
+              title={movie.title}
+              summary={
+                movie.summary.length < 200
+                  ? movie.summary
+                  : movie.summary.slice(
+                      0,
+                      movie.summary.lastIndexOf(" ", 200)
+                    ) + " ..."
+              }
+              genres={movie.genres}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 }
