@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./card.css";
 
 function Detail() {
   let [loading, setLoading] = useState(true);
@@ -17,13 +18,14 @@ function Detail() {
     getMovies();
   }, []);
   return (
-    <div>
+    <div className="container">
       {loading ? (
         <h4>Loading...</h4>
       ) : (
         <MovieDetail
           title={movie.title}
           coverImg={movie.medium_cover_image}
+          backImg={movie.background_image}
           rating={movie.rating}
           description={movie.description_full}
           genres={movie.genres}
@@ -32,19 +34,29 @@ function Detail() {
     </div>
   );
 }
-function MovieDetail({ title, coverImg, rating, description, genres }) {
+function MovieDetail({
+  title,
+  coverImg,
+  rating,
+  description,
+  genres,
+  backImg,
+}) {
   return (
-    <>
-      <img src={coverImg} alt={title} />
+    <div>
+      <div>
+        <img src={coverImg} alt={title} />
+        <img className="back-img" src={backImg} alt={title} />
+      </div>
       <h1>{title}</h1>
       <h3>rating({rating}/10)</h3>
-      <p>{description}</p>
+      <p className="description">{description}</p>
       <ul>
         {genres.map((g) => (
           <li key={g}>{g}</li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 export default Detail;

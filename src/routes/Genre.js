@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import { useParams } from "react-router-dom";
-import styled from "./Genre.module.css";
+import "./card.css";
 function Genre() {
   let [loading, setLoading] = useState(true);
   let [movies, setMovies] = useState([]);
@@ -20,11 +20,11 @@ function Genre() {
 
   return (
     <div style={{ height: "100%" }}>
-      <h1 className={styled.maintitle}>
+      <h1 className="mainTitle">
         {`Best ${genre} Movies `}
         {loading ? null : `(${movies.length})`}{" "}
       </h1>
-      <div className={styled.gridContainer}>
+      <div className="gridContainer">
         {loading ? (
           <h1 style={{ color: "white" }}>Loading...</h1>
         ) : (

@@ -14,13 +14,25 @@
 }
 
 .imageDescription {
-  padding: 0.5em;
+  padding: 1em;
   color: black;
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.imageDescription h2 {
+  font-size: x-large;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2em;
 }
 .imageDescription a {
   text-decoration: none;
   color: black;
+}
+.imageDescription p {
+  margin-bottom: 0.5em;
 }
 ul {
   padding: 0;

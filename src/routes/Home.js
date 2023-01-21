@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
-import styled from "./Home.module.css";
+import "./card.css";
 
 function Home() {
   let [loading, setLoading] = useState(true);
@@ -20,8 +20,8 @@ function Home() {
 
   return (
     <div style={{ height: "100%" }}>
-      <h1 className={styled.maintitle}>Top Movies</h1>
-      <div className={styled.gridContainer}>
+      <h1 className="mainTitle">Top Movies</h1>
+      <div className="gridContainer">
         {loading ? (
           <h1 style={{ color: "white" }}>Loading...</h1>
         ) : (
