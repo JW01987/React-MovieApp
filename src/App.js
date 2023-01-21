@@ -1,3 +1,4 @@
+import React from "react";
 import Home from "./routes/Home";
 import { Routes, Route } from "react-router-dom";
 import Detail from "./routes/Detail";
